@@ -1,5 +1,24 @@
 {
-    "EXPERIENCE": {
-        "TITLE": "Experiência"
+    "TITLE": {
+        "SIDEBAR": "JBEERAPP"
+    },
+    "DASHBOARD": {
+        "RESISTOR": "Resistência",
+        "PUMP": "Bomba",
+        "TEMPERATURE": "Rampa - {{value}}",
+        "TIME": "Tempo - {{value}}",
+        "RESISTOR_STATUS_ON": "Resistência Ligada... Aquecendo....",
+        "RESISTOR_STATUS_OFF": "Resistência Desligada",
+        "PUMP_STATUS_ON": "Bomba Ligada... Recirculando....",
+        "PUMP_STATUS_OFF": "Bomba Desligada",
+        "MESH_ON": "Brassagem em andamento",
+        "MESH_OFF": "Parado"
+    },
+    "MENU": {
+        "MESH": "Brassagem"
+    },
+    "FOOTER": {
+        "COPYRIGHT": "Todos os direitos reservados"
     }
+    
 }

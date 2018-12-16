@@ -1,5 +1,21 @@
 {
-    "EXPERIENCE": {
-        "TITLE": "Experience"
+    "TITLE": {
+        "SIDEBAR": "JBEERAPP"
+    },
+    "DASHBOARD": {
+        "RESISTOR": "Resistor",
+        "PUMP": "Pump",
+        "TEMPERATURE": "Temperature",
+        "TIME": "Time",
+        "RESISTOR_STATUS_ON": "",
+        "PUMP_STATUS": "",
+        "TEMPERATURE_STATUS": "",
+        "TIME_STATUS": ""
+    },
+    "MENU": {
+        "MESH": "Mesh"
+    },
+    "FOOTER": {
+        "COPYRIGHT": "All rights reserved"
     }
 }
