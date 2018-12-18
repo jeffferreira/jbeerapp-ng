@@ -1,4 +1,4 @@
-export interface IMesh {
+export interface IControlBeer {
     id?: number;
     resistor?: boolean;
     pump?: boolean;
@@ -6,7 +6,7 @@ export interface IMesh {
     time?: number;
 }
 
-export class Mesh implements IMesh {
+export class ControlBeer implements IControlBeer {
     constructor(
         public resistor?: boolean, 
         public pump?: boolean,

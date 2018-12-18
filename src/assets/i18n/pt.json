@@ -17,6 +17,15 @@
     "MENU": {
         "MESH": "Brassagem"
     },
+    "RECIPES": {
+        "TITLE": "Minhas Receitas",
+        "COLUMN_NAME": "Nome",
+        "COLUMN_STYLE": "Estilo",
+        "COLUMN_TYPE": "Tipo de Receita",
+        "COLUMN_BATCH_SIZE": "Vol Lote",
+        "COLUMN_DATE": "Data",
+        "COLUMN_OPTION": "Opções"
+    },
     "FOOTER": {
         "COPYRIGHT": "Todos os direitos reservados"
     }

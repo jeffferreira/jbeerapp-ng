@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
-import { IMesh, Mesh } from 'app/shared/model/mesh';
+import { IControlBeer, ControlBeer } from 'app/shared/model/control-beer';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +9,10 @@ import { IMesh, Mesh } from 'app/shared/model/mesh';
 })
 export class DashboardComponent implements OnInit {
 
-  mashOn: boolean = false;
+  mashOn: boolean = true;
   mashTemperature = {value: '0'};
   mashTimer = {value: '0 min'};
-  mesh: IMesh;
+  controlBeer: IControlBeer;
 
   constructor() { }
 
@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
   };
  
   ngOnInit() {
-    this.mesh = new Mesh(false, false, 0, 0);
+    this.controlBeer = new ControlBeer(true, true, 50, 30);
 
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
@@ -108,11 +108,11 @@ export class DashboardComponent implements OnInit {
   }
 
   resistorOn() :boolean{
-    return this.mesh.resistor;
+    return this.controlBeer.resistor;
   }
 
   pumpOn() :boolean{
-    return this.mesh.pump;
+    return this.controlBeer.pump;
   }
 
 }
