@@ -19,6 +19,10 @@
     },
     "RECIPES": {
         "TITLE": "Minhas Receitas",
+        "BTN_UPLOAD": "Upload",
+        "BTN_INIT": "Iniciar brassagem",
+        "BTN_VIEW": "Visualizar receita",
+        "BTN_DELETE": "Apagar receita",
         "COLUMN_NAME": "Nome",
         "COLUMN_STYLE": "Estilo",
         "COLUMN_TYPE": "Tipo de Receita",

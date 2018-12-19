@@ -28,24 +28,24 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-          deps: [HttpClient]
-      }
-  }),
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+    }),
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

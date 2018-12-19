@@ -1,36 +1,79 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-          <div class="col-md-12">
-              <div class="card card-plain">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title mt-0"> {{ 'RECIPES.TITLE' | translate }}</h4>
-                  </div>
-                  <div class="card-body">
-                      <div class="table-responsive">
-                          <table class="table table-hover">
-                              <thead class="">
-                                  <th>{{ 'RECIPES.COLUMN_NAME' | translate }}</th>
-                                  <th>{{ 'RECIPES.COLUMN_STYLE' | translate }}</th>
-                                  <th>{{ 'RECIPES.COLUMN_TYPE' | translate }}</th>
-                                  <th>{{ 'RECIPES.COLUMN_BATCH_SIZE' | translate }}</th>
-                                  <th>{{ 'RECIPES.COLUMN_DATE' | translate }}</th>
-                                  <th>{{ 'RECIPES.COLUMN_OPTION' | translate }}</th>
-                              </thead>
-                              <tbody>
-                                <tr *ngFor="let row of recipes">
-                                    <td>{{ row.name }}</td>
-                                    <td>{{ row.style.name }}</td>
-                                    <td>{{ row.type }}</td>
-                                    <td>{{ row.displayBatchSize }}</td>
-                                    <td>{{ row.date }}</td>
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+        <div class="col-md-6">
+            <label>
+                <input type="file" (change)="selectFile($event)">
+            </label>
+            <button class="btn btn-default" style="margin-left: 3px" 
+                [disabled]="!selectedFiles" (click)="upload()">{{ 'RECIPES.BTN_UPLOAD' | translate }}</button>
+        </div>
+        <div class="col-md-6">
+            <app-search 
+                (onTyping)="filter = $event" [value]="filter">
+            </app-search>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title mt-0"> {{ 'RECIPES.TITLE' | translate }}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                                <th>{{ 'RECIPES.COLUMN_NAME' | translate }}</th>
+                                <th>{{ 'RECIPES.COLUMN_STYLE' | translate }}</th>
+                                <th>{{ 'RECIPES.COLUMN_TYPE' | translate }}</th>
+                                <th>{{ 'RECIPES.COLUMN_BATCH_SIZE' | translate }}</th>
+                                <th style="width: 7%">{{ 'RECIPES.COLUMN_DATE' | translate }}</th>
+                                <th style="width: 15%">{{ 'RECIPES.COLUMN_OPTION' | translate }}</th>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let row of recipes | filterByDescription: filter | paginate: { itemsPerPage: 10, currentPage: p }">
+                                <td>{{ row.name }}</td>
+                                <td>{{ row.style.name }}</td>
+                                <td>{{ row.type }}</td>
+                                <td>{{ row.displayBatchSize }}</td>
+                                <td>{{ row.date }}</td>
+                                <td>
+                                    <div class="btn-group pull-right">
+                                        
+                                        <button (click)="init(row)"
+                                            class="btn btn-success btn-sm" title="{{ 'RECIPES.BTN_INIT' | translate }}">
+                                            <i class="fa fa-play-circle"></i>
+                                        </button>
+
+                                        <button (click)="view(row)"
+                                            style="margin-left: 3px"
+                                            class="btn btn-info btn-sm" title="{{ 'RECIPES.BTN_VIEW' | translate }}">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+
+                                        <button (click)="openExclusionModal(row)" class="btn btn-danger btn-sm"
+                                            style="margin-left: 3px" title="{{ 'RECIPES.BTN_DELETE' | translate }}">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: right">
+                        <pagination-controls (pageChange)="p = $event"
+                            directionLinks="true"
+                            autoHide="true"
+                            responsive="true"
+                            previousLabel="Anterior"
+                            nextLabel="Próximo">
+                        </pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>

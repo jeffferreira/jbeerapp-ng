@@ -1,0 +1,11 @@
+<div class="input-group">
+    <input 
+        class="form-control" type="search"
+        placeholder="Buscar..."
+        autofocus
+        (keyup)="debounce.next($event.target.value)"
+        [value]="value">
+    <span class="input-group-addon">
+        <i aria-hidden="true" class="fa fa-search"></i>
+    </span>
+</div>
