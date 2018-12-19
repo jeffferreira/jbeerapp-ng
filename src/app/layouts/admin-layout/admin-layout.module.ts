@@ -5,8 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
-import { IconsComponent } from '../../icons/icons.component';
+import { ConfigurationComponent } from '../../configuration/configuration.component';
 import { NgxPaginationModule } from 'ngx-pagination'; 
 import {
   MatButtonModule,
@@ -27,8 +26,7 @@ import { ExclusionDialogComponent } from 'app/shared/components/dialog/exclusion
   declarations: [
     DashboardComponent,
     TableListComponent,
-    TypographyComponent,
-    IconsComponent,
+    ConfigurationComponent,
     FilterByDescription
   ],
   imports: [

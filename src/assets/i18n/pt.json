@@ -30,6 +30,10 @@
         "COLUMN_DATE": "Data",
         "COLUMN_OPTION": "Opções"
     },
+    "CONFIGURATION": {
+        "TITLE": "Configurações",
+        "SUBTITLE": "Padrão de configuração do controlador"
+    },
     "FOOTER": {
         "COPYRIGHT": "Todos os direitos reservados"
     }
