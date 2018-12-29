@@ -19,6 +19,7 @@
     },
     "RECIPES": {
         "TITLE": "Minhas Receitas",
+        "RECIPE": "Receita",
         "BTN_UPLOAD": "Upload",
         "BTN_INIT": "Iniciar brassagem",
         "BTN_VIEW": "Visualizar receita",
@@ -28,7 +29,8 @@
         "COLUMN_TYPE": "Tipo de Receita",
         "COLUMN_BATCH_SIZE": "Vol Lote",
         "COLUMN_DATE": "Data",
-        "COLUMN_OPTION": "Opções"
+        "COLUMN_OPTION": "Opções",
+        "COMPLETED_TASK": "Andamento da Brassagem"
     },
     "CONFIGURATION": {
         "TITLE": "Configurações",
