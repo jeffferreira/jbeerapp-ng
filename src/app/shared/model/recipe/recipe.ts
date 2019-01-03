@@ -1,49 +1,44 @@
-import { Hop } from "./hop";
-import { Fermentable } from "./fermentable";
-import { Yeast } from "./yeast";
-import { Style } from "./style";
-import { Mash } from "./mash";
+import { Moment } from 'moment';
+import { IMash } from "./mash";
+import { IStyle } from "./style";
 
 export interface IRecipe {
+    id?: number;
     name?: string;
     type?: string;
     brewer?: string;
-    batchSize?: string;
-    boilSize?: string;
-    boilTime?: string;
-    eficiency?: string;
-    date?: string;
+    batchSize?: number;
+    boilSize?: number;
+    boilTime?: number;
+    eficiency?: number;
+    date?: Moment;
     ibu?: string;
     estAbv?: string;
     displayBatchSize?: string;
     displayOg?: string;
     displayFg?: string;
-    hops?: Hop[];
-    fermentables?: Fermentable[];
-    yeasts?: Yeast[];
-    style?: Style;
-    mash?: Mash;
+    mash?: IMash;
+    style?: IStyle;
 }
 
 export class Recipe implements IRecipe {
     constructor(
-        public name?: string, 
-        public type?: string, 
-        public brewer?: string, 
-        public batchSize?: string, 
-        public boilSize?: string, 
-        public boilTime?: string, 
-        public eficiency?: string, 
-        public date?: string, 
+        public id?: number,
+        public name?: string,
+        public type?: string,
+        public brewer?: string,
+        public batchSize?: number,
+        public boilSize?: number,
+        public boilTime?: number,
+        public eficiency?: number,
+        public date?: Moment,
         public ibu?: string,
         public estAbv?: string,
-        public displayBatchSize?: string, 
-        public displayOg?: string, 
-        public displayFg?: string, 
-        public hops?: Hop[],
-        public fermentables?: Fermentable[],
-        public yeasts?: Yeast[],
-        public style?: Style,
-        public mash?: Mash
+        public displayBatchSize?: string,
+        public displayOg?: string,
+        public displayFg?: string,
+        public mash?: IMash,
+        public style?: IStyle
     ) {}
 }
+

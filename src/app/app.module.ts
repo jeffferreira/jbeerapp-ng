@@ -15,6 +15,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoginModule } from './login/login.module';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,7 +27,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     AdminLayoutComponent
   ],
-  imports: [
+  imports: [  
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -34,6 +36,7 @@ export function createTranslateLoader(http: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    LoginModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

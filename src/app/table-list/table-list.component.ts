@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IRecipe, Recipe } from 'app/shared/model/recipe/recipe';
-import { Style } from 'app/shared/model/recipe/style';
 import { UploadFileService } from './upload/upload-file.service';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { MatDialogConfig, MatDialog } from '@angular/material';
@@ -15,7 +14,7 @@ import { ExclusionDialogComponent } from 'app/shared/components/dialog/exclusion
 })
 export class TableListComponent implements OnInit {
 
-  recipes: IRecipe[] = [];
+  recipes: IRecipe[];
   selectedFiles: FileList;
   currentFileUpload: File;
   filter: string = '';
@@ -27,46 +26,16 @@ export class TableListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    var recipe = new Recipe(
-      '18. American Pale Ale', 
-        'Tudo Grão', 
-        '', '', '', '', '', 
-        '18/12/2018', 
-        '', '', 
-        '20,00 l', 
-        '', '', null, null, null, 
-        new Style('American Pale Ale', 'American Ale', 'Ale'),
-        null
+    this.loadAll();
+  }
+
+  loadAll() {
+    this.service.findAll().subscribe(
+        (res: HttpResponse<IRecipe[]>) => {
+            this.recipes = res.body;
+        },
+        (res: HttpErrorResponse) => console.log(res.message)
     );
-
-    var recipe1 = new Recipe(
-      '19. Pilsen', 
-        'Tudo Grão', 
-        '', '', '', '', '', 
-        '25/12/2018', 
-        '', '', 
-        '20,00 l', 
-        '', '', null, null, null, 
-        new Style('German Pilsen', 'Pilsen', 'Lager'),
-        null
-    );
-
-    var recipe2 = new Recipe(
-      '20. IPA', 
-        'Tudo Grão', 
-        '', '', '', '', '', 
-        '25/08/2018', 
-        '', '', 
-        '20,00 l', 
-        '', '', null, null, null, 
-        new Style('American IPA', 'ALE', 'ALE'),
-        null
-    );
-
-    this.recipes[0] =recipe;
-    this.recipes[1] =recipe1;
-    this.recipes[2] =recipe2;
-
   }
 
   selectFile(event) {
@@ -104,7 +73,7 @@ export class TableListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.subscribeToSaveResponse(this.service.delete(recipe), 'Registro excluído com sucesso');
+        this.subscribeToSaveResponse(this.service.delete(recipe.id), 'Registro excluído com sucesso');
       }
     });
   }

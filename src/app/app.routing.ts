@@ -3,24 +3,30 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
+import { LoginComponent } from './login/login.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, 
   {
     path: '',
     component: AdminLayoutComponent,
     children: [
-        {
-      path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]}
-  
+      {
+        path: '',
+        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+      }
+    ]
+  },
+ 
+  {
+    path: 'login',
+    component: LoginComponent,
+  }
 ];
 
 @NgModule({
