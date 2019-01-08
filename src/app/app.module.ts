@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoginModule } from './login/login.module';
+import { CoreModule } from './core/core.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,6 +37,7 @@ export function createTranslateLoader(http: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    CoreModule,
     LoginModule,
     TranslateModule.forRoot({
       loader: {

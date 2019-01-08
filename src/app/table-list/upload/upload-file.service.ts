@@ -8,13 +8,15 @@ const API = environment.ApiUrl;
 
 @Injectable()
 export class UploadFileService {
+
+  public resourceUrl = API + '/recipes/uploadrecipe';
   
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
   
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
     formdata.append('file', file);
-    const req = new HttpRequest('POST', API, formdata, {
+    const req = new HttpRequest('POST', `${this.resourceUrl}`, formdata, {
       reportProgress: true,
       responseType: 'text'
     }
